@@ -5,8 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RoutedEvents"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="800" Width="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border BorderBrush="Red"
+                Name="Border"
+                MouseDown="Element_MouseDown"
+                PreviewMouseDown="Element_PreviewMouseDown"
+                Margin="50" BorderThickness="10">
+
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal"
+                        Name="Stackpanel"
+                        PreviewMouseDown="Element_PreviewMouseDown"
+                        MouseDown="Element_MouseDown"
+                        Margin="50">
+
+                <Rectangle Fill="Blue" 
+                           Name="BlueRectangle"
+                           Height="80" Width="80"
+                           PreviewMouseDown="Element_PreviewMouseDown"
+                           MouseDown="Element_MouseDown"/>
+
+                <Rectangle Fill="Green"
+                           Name="GreenRectangle"
+                           Height="80" Width="80"
+                           PreviewMouseDown="Element_PreviewMouseDown"
+                           MouseDown="Element_MouseDown"
+                           Margin="80 0 0 0"/>
+            </StackPanel>
+        </Border>
+
+        <DataGrid Grid.Row="1" Name="eventsDataGrid" />
+
+        <Button Grid.Row="2" Content="Clear" Margin="0 8 0 0"
+                Click="ClearButton_Click" />
     </Grid>
 </Window>
